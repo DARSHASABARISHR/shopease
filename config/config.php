@@ -31,14 +31,14 @@ define('DB_PASS', env('DB_PASS', ''));
 // ---- Gmail SMTP (use a Google *App Password*, not your normal password) ----
 define('SMTP_HOST',  'smtp.gmail.com');
 define('SMTP_PORT',  587);
-define('SMTP_USER',  env('SMTP_USER', 'rdarshasabarish@gmail.com'));
-define('SMTP_PASS',  env('SMTP_PASS', 'yfmz akha jjer nblo'));   // 16-char app password
+define('SMTP_USER',  env('SMTP_USER', ''));
+define('SMTP_PASS',  env('SMTP_PASS', ''));   // 16-char app password
 define('MAIL_FROM',  env('MAIL_FROM', SMTP_USER));
 define('MAIL_FROM_NAME', APP_NAME);
 
 // ---- Razorpay (https://dashboard.razorpay.com/app/keys) --------------------
-define('RAZORPAY_KEY_ID',     env('RAZORPAY_KEY_ID', 'rzp_test_ToXyDJXKuTbsu4'));
-define('RAZORPAY_KEY_SECRET', env('RAZORPAY_KEY_SECRET', 'xt5wF5Yq6OQl1pwT3lM8UyL6'));
+define('RAZORPAY_KEY_ID',     env('RAZORPAY_KEY_ID', 'rzp_test_'));
+define('RAZORPAY_KEY_SECRET', env('RAZORPAY_KEY_SECRET', ''));
 
 // ---- Pricing rules ---------------------------------------------------------
 define('GST_RATE', 18.0);                 // % added on items total
