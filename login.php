@@ -6,8 +6,8 @@ if (current_user()) redirect('index.php');
 $db = Database::getConnection();
 $error = ''; $email = '';
 
-// உங்கள் புதிய ShopEase Google Client ID
-$googleClientId = '1070726770669-a66foh50dij6emvgngtnmfcau7ojjeug.apps.googleusercontent.com';
+//  ShopEase Google Client ID
+$googleClientId = ''; //our googleClient Id or urs
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_require();
@@ -57,7 +57,7 @@ require __DIR__ . '/includes/header.php';
   <h1>Sign in</h1>
   <?php if ($error): ?><div class="alert alert-error"><?= e($error) ?></div><?php endif; ?>
 
-  <!-- Google Sign-In பட்டன் அமைப்பு -->
+  <!-- Google Sign-In ு -->
   <div style="display:flex; justify-content:center; margin-bottom:15px;">
     <div id="g_id_onload"
          data-client_id="<?= e($googleClientId) ?>"
