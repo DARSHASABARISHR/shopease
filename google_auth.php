@@ -22,7 +22,7 @@ try {
         throw new Exception('Invalid credential');
     }
 
-    // Google Tokeninfo சரிபார்ப்பு
+    // Google Tokeninfo check
     $url = 'https://oauth2.googleapis.com/tokeninfo?id_token=' . rawurlencode($cred);
     
     $ch = curl_init($url);
@@ -47,13 +47,13 @@ try {
     $email = strtolower(trim((string)$p['email']));
     $sub   = (string)$p['sub'];
 
-    // பயனர் ஏற்கனவே உள்ளாரா எனப் பார்த்தல்
+    // user already noticing
     $st = $db->prepare('SELECT * FROM users WHERE google_sub = ? OR email = ? LIMIT 1');
     $st->execute([$sub, $email]);
     $u = $st->fetch();
 
     if ($u) {
-        // பழைய பயனருக்கு google_sub இணைத்து verification உறுதி செய்தல்
+        // old user google_sub + verification confirm
         $db->prepare('UPDATE users SET google_sub = ?, is_verified = 1 WHERE user_id = ?')
            ->execute([$sub, $u['user_id']]);
         $userId = (int)$u['user_id'];
